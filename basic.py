@@ -30,6 +30,27 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
+        keys = pygame.key.get_pressed()   # press key
+
+        if keys[pygame.K_LEFT]:
+            x -= speed
+            print("Left -5 x = %s" % x)
+        elif keys[pygame.K_RIGHT]:
+            x += speed
+            print("Right +5 x = %s" % x)
+        elif keys[pygame.K_UP]:
+            y -= speed
+            print("Up -5 y = %s" % y)
+        elif keys[pygame.K_DOWN]:
+            y += speed
+            print("Down +5 y = %s" % y)
+
+        # fill the window with black
+        win.fill((0, 0, 0))
+        # draw blue square
+        pygame.draw.rect(win, (0, 0, 255), (x, y, width, height))
+        pygame.display.update()
+
     pygame.quit()
 
 
